@@ -21,8 +21,12 @@ def test_database():
         database_objects = [
             User(id=1, username='provider_user', type=UserType.provider),
             User(id=2, username='client_user', type=UserType.client),
-            Appointment(id=1, provider_id=1, confirmed = False, slot_datetime = datetime(2025, 2, 1)),
-            Appointment(id=2, provider_id=1, confirmed = False, slot_datetime = datetime(2024, 1, 1, 1)),
+            Appointment(id=1, provider_id=1, confirmed=False, slot_datetime=datetime(2025, 2, 1)),
+            Appointment(id=2, provider_id=1, confirmed=False, slot_datetime=datetime(2024, 1, 1, 1)),
+            Appointment(id=3, provider_id=1, confirmed=False, slot_datetime=datetime(2024, 1, 1, 1),
+                        last_reserved_datetime=datetime(2024, 1, 1, 0, 45)),
+            Appointment(id=4, provider_id=1, confirmed=False, slot_datetime=datetime(2024, 1, 1, 1),
+                        last_reserved_datetime=datetime(2023, 12, 31, 23, 55), last_reserved_by=2),
         ]
     
         db.session.add_all(database_objects)

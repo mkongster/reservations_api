@@ -13,7 +13,7 @@ class User(db.Model):
     type = db.Column(db.Enum(UserType), nullable=False)
 
     def to_dict(self):
-        return {'id': self.id, 'username': self.username}
+        return {'id': self.id, 'username': self.username, 'type': self.type.name}
 
 
 class Appointment(db.Model):
@@ -24,3 +24,14 @@ class Appointment(db.Model):
     slot_datetime = db.Column(db.DateTime, nullable=False)
     last_reserved_by = db.Column(db.Integer)
     last_reserved_datetime = db.Column(db.DateTime)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'provider_id': self.provider_id,
+            'client_id': self.client_id,
+            'confirmed': self.confirmed,
+            'slot_datetime': self.slot_datetime,
+            'last_reserved_by': self.last_reserved_by, 
+            'last_reserved_datetime': self.last_reserved_datetime
+        }

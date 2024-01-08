@@ -1,6 +1,7 @@
 from flask import Flask
 from .config import Config
 from .database import db
+from .models import User, Appointment
 
 app = Flask(__name__)
 app.config.from_object(Config)
