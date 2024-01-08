@@ -1,5 +1,5 @@
 import enum
-from app.database import db
+from .database import db
 
 
 class UserType(enum.Enum):
@@ -22,3 +22,5 @@ class Appointment(db.Model):
     client_id = db.Column(db.Integer)
     confirmed = db.Column(db.Boolean, default=False, nullable=False)
     slot_datetime = db.Column(db.DateTime, nullable=False)
+    last_reserved_by = db.Column(db.Integer)
+    last_reserved_datetime = db.Column(db.DateTime)
