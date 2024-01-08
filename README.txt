@@ -25,8 +25,13 @@ Accepts payload:
 Submits availability for a provider.
 Payload:
     provider_id: integer id of provider
-    appointments: list of datetime strings to create availability etc, 2022-01-05T14:30:00
-                    in format: 'YYYY-MM-DDTHH:MM:SS'
+    appointments: list of datetime strings in 15 minute intervals to create availability etc,
+                ex:
+                    2022-01-05T14:00:00
+                    2022-01-05T14:15:00
+                    2022-01-05T14:30:00
+                    2022-01-05T14:45:00
+                    in format: 'YYYY-MM-DDTHH:MM:SS', 
 
 /reserve'
 Payload:
